@@ -38,6 +38,11 @@
   .arc-deco { position: absolute; right: 6%; top: 50%; transform: translateY(-50%); width: 180px; height: 180px; opacity: 0.06; pointer-events: none; }
   .hero-wrap { position: relative; }
 
+  /* Profile photo */
+  .hero-photo-wrap { position: absolute; right: 5%; top: 50%; transform: translateY(-50%); z-index: 1; }
+  .hero-photo { width: 220px; height: 220px; border-radius: 50%; object-fit: cover; object-position: center top; border: 3px solid rgba(132,94,194,0.5); box-shadow: 0 0 0 8px rgba(132,94,194,0.08), 0 24px 60px rgba(0,0,0,0.4); display: block; }
+  .about-photo { width: 160px; height: 160px; border-radius: 50%; object-fit: cover; object-position: center top; border: 3px solid rgba(132,94,194,0.5); box-shadow: 0 0 0 6px rgba(132,94,194,0.08); display: block; margin-bottom: 1.25rem; }
+
   /* ABOUT */
   .about-wrap { max-width: 1000px; margin: 0 auto; padding: 3.5rem 2.5rem 5rem; }
   .section-label { font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; color: #845EC2; margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.6rem; }
@@ -117,6 +122,18 @@
     .nav-links { gap: 1.1rem; flex-wrap: wrap; justify-content: flex-end; }
     .hero, .about-wrap, .exp-wrap { padding-left: 1.25rem; padding-right: 1.25rem; }
     .arc-deco { display: none; }
+
+    /* Hero photo: show above hero text, centered */
+    .hero-wrap { display: flex; flex-direction: column; }
+    .hero-photo-wrap { position: static; transform: none; display: flex; justify-content: center; padding: 2.5rem 1.25rem 0; }
+    .hero-photo { width: 110px; height: 110px; }
+    .hero { min-height: unset; padding-top: 1.75rem; padding-bottom: 3rem; }
+
+    /* About photo: center it on mobile */
+    .about-photo { width: 120px; height: 120px; margin: 0 auto 1.25rem; }
+    .socials-wrap { align-items: center; text-align: center; }
+    .socials { justify-content: center; }
+
     .exp-current { padding: 1.4rem 1.4rem; }
     .exp-current-role { font-size: 1.35rem; }
     .timeline { padding-left: 1.25rem; }
@@ -124,7 +141,6 @@
     .about-headline { font-size: 2rem; }
     .skills-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
     .social-btn { width: 44px; height: 44px; }
-    .hero { min-height: 72vh; justify-content: flex-start; padding-top: 9vh; }
   }
 </style>
 </head>
@@ -143,6 +159,9 @@
 <!-- HOME -->
 <div id="page-home" class="page active">
   <div class="hero-wrap">
+    <div class="hero-photo-wrap">
+      <img class="hero-photo" src="profile.jpg" alt="Anwesha Banerjee, Ph.D.">
+    </div>
     <svg class="arc-deco" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
       <circle cx="90" cy="90" r="88" stroke="white" stroke-width="1"/>
       <circle cx="90" cy="90" r="70" stroke="white" stroke-width="0.5"/>
@@ -162,8 +181,7 @@
       </p>
       <div class="hero-cta">
         <a href="https://www.youtube.com/watch?v=VthbZPxM-do&t=1s" target="_blank" class="btn btn-accent">▶ Watch my TEDx Talk</a>
-        <!-- Update the LinkedIn URL below with your actual profile handle -->
-        <a href="https://www.linkedin.com/in/anwesha-banerjee-phd/" target="_blank" class="btn btn-outline">LinkedIn ↗</a>
+        <a href="https://www.linkedin.com/in/anweshaban/" target="_blank" class="btn btn-outline">LinkedIn ↗</a>
         <button class="btn btn-outline" onclick="showPage('about')">About me →</button>
       </div>
     </div>
@@ -203,11 +221,11 @@
         </div>
       </div>
       <div class="socials-wrap">
+        <img class="about-photo" src="profile.jpg" alt="Anwesha Banerjee, Ph.D.">
         <div>
           <div class="socials-label">Find me online</div>
           <div class="socials" style="margin-top: 1rem;">
-            <!-- LinkedIn — update URL to exact handle -->
-            <a href="https://www.linkedin.com/in/anwesha-banerjee-phd/" target="_blank" class="social-btn" aria-label="LinkedIn" title="LinkedIn">
+            <a href="https://www.linkedin.com/in/anweshaban/" target="_blank" class="social-btn" aria-label="LinkedIn" title="LinkedIn">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
             </a>
             <!-- YouTube — TEDx talk -->
