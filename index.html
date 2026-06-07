@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anwesha Banerjee, Ph.D.</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'DM Sans', sans-serif; background: #13141a; color: #e8e4dc; min-height: 100vh; }
+
+  nav { display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 2.5rem; border-bottom: 0.5px solid rgba(255,255,255,0.08); position: sticky; top: 0; background: rgba(19,20,26,0.94); backdrop-filter: blur(12px); z-index: 100; }
+  .nav-logo { font-family: 'DM Serif Display', serif; font-size: 1.2rem; color: #845EC2; letter-spacing: 0.02em; }
+  .nav-logo span { color: #e8e4dc; }
+  .nav-links { display: flex; gap: 2rem; }
+  .nav-link { font-size: 0.82rem; font-weight: 400; color: rgba(232,228,220,0.55); cursor: pointer; text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; border: none; background: none; }
+  .nav-link:hover, .nav-link.active { color: #845EC2; }
+
+  .page { display: none; animation: fadein 0.35s ease; }
+  .page.active { display: block; }
+  @keyframes fadein { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* HOME */
+  .hero { min-height: 90vh; display: flex; flex-direction: column; justify-content: center; padding: 4rem 2.5rem 3rem; max-width: 1000px; margin: 0 auto; }
+  .hero-eyebrow { font-size: 0.78rem; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(232,228,220,0.5); margin-bottom: 1.75rem; display: flex; align-items: center; gap: 0.75rem; }
+  .hero-eyebrow::before { content: ''; display: inline-block; width: 28px; height: 1px; background: #845EC2; }
+  .hero-name { font-family: 'DM Serif Display', serif; font-size: clamp(3.2rem, 8vw, 5.5rem); line-height: 1.05; color: #f0ece2; margin-bottom: 1.25rem; }
+  .hero-name em { color: #845EC2; font-style: italic; display: block; }
+  .hero-tagline { font-size: 1.05rem; font-weight: 300; color: rgba(232,228,220,0.72); max-width: 500px; line-height: 1.85; margin-bottom: 2.5rem; }
+  .hero-tagline strong { color: #f0ece2; font-weight: 500; }
+  .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn { padding: 0.65rem 1.5rem; font-family: 'DM Sans', sans-serif; font-size: 0.82rem; letter-spacing: 0.06em; border-radius: 3px; cursor: pointer; transition: all 0.2s; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; }
+  .btn-accent { background: #845EC2; color: #fff; border: none; font-weight: 500; }
+  .btn-accent:hover { background: #9872cc; }
+  .btn-outline { background: transparent; color: #e8e4dc; border: 0.5px solid rgba(232,228,220,0.25); }
+  .btn-outline:hover { border-color: #845EC2; color: #845EC2; }
+
+  .arc-deco { position: absolute; right: 6%; top: 50%; transform: translateY(-50%); width: 180px; height: 180px; opacity: 0.06; pointer-events: none; }
+  .hero-wrap { position: relative; }
+
+  /* ABOUT */
+  .about-wrap { max-width: 1000px; margin: 0 auto; padding: 3.5rem 2.5rem 5rem; }
+  .section-label { font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; color: #845EC2; margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.6rem; }
+  .section-label::after { content: ''; flex: 1; height: 0.5px; background: rgba(132,94,194,0.25); max-width: 80px; }
+  .about-headline { font-family: 'DM Serif Display', serif; font-size: 2.4rem; line-height: 1.18; color: #f0ece2; margin-bottom: 1.75rem; }
+  .about-body { font-size: 0.96rem; line-height: 1.95; color: rgba(232,228,220,0.82); max-width: 540px; }
+  .about-body p + p { margin-top: 1rem; }
+  .about-body strong { color: #f0ece2; font-weight: 500; }
+  .about-roots { font-size: 0.86rem; line-height: 1.8; color: rgba(232,228,220,0.65); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; }
+  .about-roots .pin { color: #845EC2; }
+
+  .two-col { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 4rem; align-items: start; }
+
+  .socials-wrap { display: flex; flex-direction: column; gap: 1.5rem; }
+  .socials-label { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(232,228,220,0.45); }
+  .socials { display: flex; gap: 0.65rem; flex-wrap: wrap; }
+  .social-btn { display: inline-flex; align-items: center; justify-content: center; width: 46px; height: 46px; border-radius: 50%; background: rgba(255,255,255,0.04); border: 0.5px solid rgba(255,255,255,0.1); color: rgba(232,228,220,0.8); text-decoration: none; transition: all 0.2s; }
+  .social-btn:hover { background: rgba(132,94,194,0.12); border-color: rgba(132,94,194,0.55); color: #f0ece2; transform: translateY(-2px); }
+  .social-btn svg { width: 20px; height: 20px; }
+
+  .divider { width: 40px; height: 1px; background: rgba(132,94,194,0.4); margin: 2.5rem 0; }
+
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 0.75rem; margin-top: 1rem; }
+  .skill-card { background: rgba(255,255,255,0.03); border: 0.5px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 1rem 1.1rem; display: flex; align-items: center; gap: 0.75rem; transition: border-color 0.2s, background 0.2s; }
+  .skill-card:hover { border-color: rgba(132,94,194,0.3); background: rgba(255,255,255,0.05); }
+  .skill-icon { font-size: 1.3rem; line-height: 1; width: 28px; text-align: center; }
+  .skill-name { font-size: 0.85rem; color: rgba(232,228,220,0.85); }
+
+  /* EXPERIENCE */
+  .exp-wrap { max-width: 1000px; margin: 0 auto; padding: 3.5rem 2.5rem 5rem; }
+  .exp-current { background: rgba(132,94,194,0.06); border: 0.5px solid rgba(132,94,194,0.25); border-radius: 12px; padding: 1.75rem 1.9rem; margin-top: 1rem; }
+  .exp-current-role { font-family: 'DM Serif Display', serif; font-size: 1.6rem; color: #f0ece2; margin-bottom: 0.4rem; line-height: 1.25; }
+  .exp-current-meta { font-size: 0.82rem; color: rgba(232,228,220,0.7); letter-spacing: 0.04em; margin-bottom: 1rem; }
+  .exp-current-desc { font-size: 0.92rem; line-height: 1.85; color: rgba(232,228,220,0.85); max-width: 640px; }
+
+  .exp-section { margin-top: 3rem; }
+
+  .timeline { margin-top: 1.5rem; position: relative; padding-left: 1.5rem; border-left: 0.5px solid rgba(255,255,255,0.1); }
+  .timeline-item { position: relative; padding-bottom: 2rem; }
+  .timeline-item:last-child { padding-bottom: 0; }
+  .timeline-item::before { content: ''; position: absolute; left: calc(-1.5rem - 5px); top: 0.4rem; width: 9px; height: 9px; border-radius: 50%; background: #845EC2; border: 2px solid #13141a; }
+  .timeline-period { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(232,228,220,0.55); margin-bottom: 0.4rem; }
+  .timeline-header { display: flex; align-items: center; gap: 0.65rem; margin-bottom: 0.25rem; }
+  .timeline-company { font-family: 'DM Serif Display', serif; font-size: 1.25rem; color: #f0ece2; }
+  .timeline-roles { font-size: 0.88rem; color: rgba(232,228,220,0.78); line-height: 1.7; }
+  .timeline-desc { font-size: 0.84rem; color: rgba(232,228,220,0.62); line-height: 1.75; margin-top: 0.5rem; max-width: 580px; }
+
+  .cred-card { background: rgba(255,255,255,0.03); border: 0.5px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 1.5rem 1.75rem; margin-top: 1.25rem; }
+  .cred-title { font-family: 'DM Serif Display', serif; font-size: 1.25rem; color: #f0ece2; margin-bottom: 0.6rem; }
+  .cred-desc { font-size: 0.9rem; line-height: 1.8; color: rgba(232,228,220,0.78); }
+  .cred-list { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+  .cred-chip { font-size: 0.78rem; color: #f0ece2; background: rgba(132,94,194,0.12); border: 0.5px solid rgba(132,94,194,0.3); padding: 0.4rem 0.8rem; border-radius: 20px; }
+
+  .edu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 1.25rem; }
+  .edu-card { background: rgba(255,255,255,0.025); border: 0.5px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 1.25rem 1.4rem; }
+  .edu-degree { font-size: 0.95rem; font-weight: 500; color: #f0ece2; margin-bottom: 0.3rem; }
+  .edu-school { font-size: 0.85rem; color: #845EC2; margin-bottom: 0.25rem; }
+  .edu-year { font-size: 0.78rem; color: rgba(232,228,220,0.55); }
+
+  .stack-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.25rem; }
+  .stack-chip { font-size: 0.78rem; color: rgba(232,228,220,0.82); background: rgba(255,255,255,0.04); border: 0.5px solid rgba(255,255,255,0.1); padding: 0.4rem 0.85rem; border-radius: 6px; }
+
+  /* FEATURED */
+  .featured-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin-top: 1.25rem; }
+  .feat-card { background: rgba(255,255,255,0.025); border: 0.5px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 1.5rem; text-decoration: none; display: block; transition: border-color 0.2s, transform 0.2s; }
+  .feat-card:hover { border-color: rgba(132,94,194,0.35); transform: translateY(-2px); }
+  .feat-card-icon { width: 38px; height: 38px; border-radius: 8px; background: rgba(132,94,194,0.12); display: flex; align-items: center; justify-content: center; margin-bottom: 1.1rem; font-size: 1.1rem; color: #845EC2; }
+  .feat-card-title { font-size: 0.95rem; font-weight: 500; color: #f0ece2; margin-bottom: 0.5rem; line-height: 1.4; }
+  .feat-card-desc { font-size: 0.84rem; color: rgba(232,228,220,0.7); line-height: 1.75; }
+  .feat-card-link { display: inline-block; margin-top: 1rem; font-size: 0.78rem; color: #845EC2; letter-spacing: 0.05em; }
+
+  footer { text-align: center; padding: 2rem 1rem 2.5rem; font-size: 0.72rem; color: rgba(232,228,220,0.35); letter-spacing: 0.1em; }
+
+  @media (max-width: 680px) {
+    .two-col { grid-template-columns: 1fr; gap: 2.5rem; }
+    nav { padding: 1rem 1.25rem; }
+    .nav-links { gap: 1.1rem; flex-wrap: wrap; justify-content: flex-end; }
+    .hero, .about-wrap, .exp-wrap { padding-left: 1.25rem; padding-right: 1.25rem; }
+    .arc-deco { display: none; }
+    .exp-current { padding: 1.4rem 1.4rem; }
+    .exp-current-role { font-size: 1.35rem; }
+    .timeline { padding-left: 1.25rem; }
+    .timeline-item::before { left: calc(-1.25rem - 5px); }
+    .about-headline { font-size: 2rem; }
+    .skills-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
+    .social-btn { width: 44px; height: 44px; }
+    .hero { min-height: 72vh; justify-content: flex-start; padding-top: 9vh; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">A<span>B</span></div>
+  <div class="nav-links">
+    <button class="nav-link active" onclick="showPage('home')">Home</button>
+    <button class="nav-link" onclick="showPage('about')">About</button>
+    <button class="nav-link" onclick="showPage('experience')">Experience</button>
+    <button class="nav-link" onclick="showPage('featured')">Featured</button>
+  </div>
+</nav>
+
+<!-- HOME -->
+<div id="page-home" class="page active">
+  <div class="hero-wrap">
+    <svg class="arc-deco" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="90" cy="90" r="88" stroke="white" stroke-width="1"/>
+      <circle cx="90" cy="90" r="70" stroke="white" stroke-width="0.5"/>
+      <circle cx="90" cy="90" r="50" stroke="white" stroke-width="1"/>
+      <circle cx="90" cy="90" r="30" stroke="white" stroke-width="0.5"/>
+      <circle cx="90" cy="90" r="14" stroke="white" stroke-width="1.5"/>
+      <line x1="90" y1="2" x2="90" y2="178" stroke="white" stroke-width="0.5"/>
+      <line x1="2" y1="90" x2="178" y2="90" stroke="white" stroke-width="0.5"/>
+      <line x1="27" y1="27" x2="153" y2="153" stroke="white" stroke-width="0.5"/>
+      <line x1="153" y1="27" x2="27" y2="153" stroke="white" stroke-width="0.5"/>
+    </svg>
+    <div class="hero">
+      <div class="hero-eyebrow">Neuroscientist · Medical Science Liaison · TEDx Speaker · Mental Health Advocate</div>
+      <h1 class="hero-name">Anwesha<em>Banerjee, Ph.D.</em></h1>
+      <p class="hero-tagline">
+        Bridging the gap between scientific discovery and patient care. <strong>Championing mental health</strong>, one conversation at a time.
+      </p>
+      <div class="hero-cta">
+        <a href="https://www.youtube.com/watch?v=VthbZPxM-do&t=1s" target="_blank" class="btn btn-accent">▶ Watch my TEDx Talk</a>
+        <!-- Update the LinkedIn URL below with your actual profile handle -->
+        <a href="https://www.linkedin.com/in/anwesha-banerjee-phd/" target="_blank" class="btn btn-outline">LinkedIn ↗</a>
+        <button class="btn btn-outline" onclick="showPage('about')">About me →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div id="page-about" class="page">
+  <div class="about-wrap">
+    <div class="two-col">
+      <div>
+        <div class="section-label">About me</div>
+        <h2 class="about-headline">Scientist at heart.<br>Storyteller by choice.</h2>
+        <div class="about-roots">
+          <span class="pin">◉</span>
+          Roots in Bangalore, India · Now in San Jose, California
+        </div>
+        <div class="about-body">
+          <p>I'm a neuroscientist and Medical Science Liaison who believes science only matters when it reaches people. My work at <strong>Axsome Therapeutics</strong> sits at the intersection of cutting-edge sleep research and real patient outcomes — translating complex science into conversations that move healthcare forward.</p>
+          <p>Beyond the lab and the clinic, I've spent years cultivating the craft of communication. As a <strong>TEDx Speaker</strong> and former Board member of Toastmasters International, I've coached and inspired thousands on turning stage fright into a superpower, using the very neuroscience I study.</p>
+          <p>Rooted in a deep curiosity for how the brain works, I carry a strong conviction that <strong>better science communication</strong> is one of the most urgent needs of our time — and mental health advocacy, one of its most important applications.</p>
+        </div>
+        <div style="margin-top: 1.75rem;">
+          <button class="btn btn-accent" onclick="showPage('experience')">My Experience →</button>
+        </div>
+        <div class="divider"></div>
+        <div class="section-label">Core strengths</div>
+        <div class="skills-grid">
+          <div class="skill-card"><span class="skill-icon">🧠</span><span class="skill-name">Neuroscience</span></div>
+          <div class="skill-card"><span class="skill-icon">🎤</span><span class="skill-name">Public Speaking</span></div>
+          <div class="skill-card"><span class="skill-icon">🤝</span><span class="skill-name">KOL Development</span></div>
+          <div class="skill-card"><span class="skill-icon">📊</span><span class="skill-name">Strategic Thinking</span></div>
+          <div class="skill-card"><span class="skill-icon">💬</span><span class="skill-name">Strategic Comms</span></div>
+          <div class="skill-card"><span class="skill-icon">🌿</span><span class="skill-name">Mental Health Advocacy</span></div>
+          <div class="skill-card"><span class="skill-icon">🔬</span><span class="skill-name">Drug Development</span></div>
+          <div class="skill-card"><span class="skill-icon">🌐</span><span class="skill-name">Cross-functional Leadership</span></div>
+        </div>
+      </div>
+      <div class="socials-wrap">
+        <div>
+          <div class="socials-label">Find me online</div>
+          <div class="socials" style="margin-top: 1rem;">
+            <!-- LinkedIn — update URL to exact handle -->
+            <a href="https://www.linkedin.com/in/anwesha-banerjee-phd/" target="_blank" class="social-btn" aria-label="LinkedIn" title="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+            </a>
+            <!-- YouTube — TEDx talk -->
+            <a href="https://www.youtube.com/watch?v=VthbZPxM-do&t=1s" target="_blank" class="social-btn" aria-label="YouTube" title="YouTube">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.11-2.13C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.39.47A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.11 2.13C4.5 20.4 12 20.4 12 20.4s7.5 0 9.39-.47a3 3 0 0 0 2.11-2.13A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8zM9.6 15.6V8.4l6.27 3.6L9.6 15.6z"/></svg>
+            </a>
+            <!-- Email — update address -->
+            <a href="mailto:" class="social-btn" aria-label="Email" title="Email">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 2-8 5-8-5h16zm0 12H4V8.5l8 5 8-5V18z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div style="font-size: 0.78rem; color: rgba(232,228,220,0.5); line-height: 1.7; font-style: italic;">
+          A neuroscientist who discovered that the cure for stage fright isn't avoiding the stage — it's understanding what your brain is doing when you're standing on it.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EXPERIENCE -->
+<div id="page-experience" class="page">
+  <div class="exp-wrap">
+    <div class="section-label">Experience</div>
+
+    <div class="exp-current">
+      <div class="exp-current-role">Medical Science Liaison · Axsome Therapeutics</div>
+      <div class="exp-current-meta">Jun 2024 – Present · San Jose, California (Remote)</div>
+      <div class="exp-current-desc">Serving as a scientific expert and trusted resource for healthcare professionals in sleep therapeutics. Providing up-to-date information on sleep disorders, current research, and the latest treatment options — bridging scientific discovery and clinical practice to improve outcomes for patients with sleep disorders.</div>
+    </div>
+
+    <div class="exp-section">
+      <div class="section-label">Career timeline</div>
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div class="timeline-period">Jun 2024 – Present</div>
+          <div class="timeline-header">
+            <span class="timeline-company">Axsome Therapeutics</span>
+          </div>
+          <div class="timeline-roles">Medical Science Liaison</div>
+          <div class="timeline-desc">Scientific expert and field liaison in sleep therapeutics — collaborating with clinicians, gathering field insights, and supporting research and development in the mental health space.</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-period">Aug 2022 – Aug 2024 · 2 yrs</div>
+          <div class="timeline-header">
+            <span class="timeline-company">Toastmasters International</span>
+          </div>
+          <div class="timeline-roles">Member, Board of Directors</div>
+          <div class="timeline-desc">Elected to the Board of Directors of the world's leading organization devoted to communication and leadership. Participated in strategic plan development, high-level policy direction, and financial oversight of the organization.</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-period">Feb 2022 – May 2024 · 2 yrs 3 mos</div>
+          <div class="timeline-header">
+            <span class="timeline-company">Annexon Biosciences</span>
+          </div>
+          <div class="timeline-roles">Scientist II</div>
+          <div class="timeline-desc">Led preclinical programs to develop therapeutic strategies for neurological and autoimmune disorders. Expert in in vivo model development, target validation, biomarker screening, and cross-functional CRO collaborations.</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-period">Jun 2015 – Mar 2022 · 6 yrs 10 mos</div>
+          <div class="timeline-header">
+            <span class="timeline-company">Emory University School of Medicine</span>
+          </div>
+          <div class="timeline-roles">Assistant Scientist (Apr 2019 – Mar 2022) · Postdoctoral Research Fellow (Jun 2015 – Mar 2019)</div>
+          <div class="timeline-desc">Researched molecular and behavioral deficits in animal models of Fragile X syndrome and Myotonic Dystrophy. Mentored research associates and contributed to CNS research strategy.</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-period">Jul 2016 – Jun 2021 · 5 yrs</div>
+          <div class="timeline-header">
+            <span class="timeline-company">Toastmasters International</span>
+          </div>
+          <div class="timeline-roles">District Director (2020–2021) · Program Quality Director (2019–2020) · Club Growth Director (2016–2019)</div>
+          <div class="timeline-desc">Progressive leadership across district-level roles — driving club growth, member retention, program quality, and district-wide strategic initiatives across Greater Atlanta Area.</div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="exp-section">
+      <div class="section-label">Education</div>
+      <div class="edu-grid">
+        <div class="edu-card">
+          <div class="edu-degree">Ph.D., Neuroscience</div>
+          <div class="edu-school">The University of Texas at Dallas</div>
+          <div class="edu-year">2011 – 2015</div>
+        </div>
+        <div class="edu-card">
+          <div class="edu-degree">M.S., Cognition &amp; Neuroscience</div>
+          <div class="edu-school">The University of Texas at Dallas</div>
+          <div class="edu-year">2009 – 2011</div>
+        </div>
+        <div class="edu-card">
+          <div class="edu-degree">Executive Education — Data Science</div>
+          <div class="edu-school">UC Berkeley</div>
+          <div class="edu-year">2019</div>
+        </div>
+        <div class="edu-card">
+          <div class="edu-degree">M.S., Biotechnology</div>
+          <div class="edu-school">Bangalore University</div>
+          <div class="edu-year">India</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-section">
+      <div class="section-label">Certifications</div>
+      <div class="cred-card">
+        <div class="cred-title">Licenses &amp; Certifications</div>
+        <div class="cred-list">
+          <span class="cred-chip">MSL Industry Certified — Cheeky Scientist (2021)</span>
+          <span class="cred-chip">Drug Development — Coursera / UCSD (2019)</span>
+          <span class="cred-chip">Business Foundations Specialization — Wharton / Coursera (2016)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-section">
+      <div class="section-label">Areas of expertise</div>
+      <div class="stack-chips">
+        <span class="stack-chip">Neuroscience</span>
+        <span class="stack-chip">Medical Affairs</span>
+        <span class="stack-chip">Drug Development</span>
+        <span class="stack-chip">Sleep Therapeutics</span>
+        <span class="stack-chip">KOL Development</span>
+        <span class="stack-chip">Molecular Biology</span>
+        <span class="stack-chip">In Vivo Model Development</span>
+        <span class="stack-chip">Target Validation</span>
+        <span class="stack-chip">Clinical Research</span>
+        <span class="stack-chip">Strategic Communications</span>
+        <span class="stack-chip">Public Speaking</span>
+        <span class="stack-chip">Cross-functional Leadership</span>
+        <span class="stack-chip">Strategic Planning</span>
+        <span class="stack-chip">Organizational Leadership</span>
+        <span class="stack-chip">Mental Health Advocacy</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- FEATURED -->
+<div id="page-featured" class="page">
+  <div class="exp-wrap">
+    <div class="section-label">Featured</div>
+
+    <div class="featured-grid">
+
+      <a href="https://www.youtube.com/watch?v=VthbZPxM-do&t=1s" target="_blank" class="feat-card">
+        <div class="feat-card-icon">▶</div>
+        <div class="feat-card-title">TEDx Talk — The Neuroscience of Stage Fright</div>
+        <div class="feat-card-desc">A TEDxDecatur talk drawing on neuroscience research to reframe stage fright — not as a weakness, but as a signal worth understanding. Equal parts research and personal story.</div>
+        <div class="feat-card-link">Watch on YouTube →</div>
+      </a>
+
+      <a href="https://www.toastmasters.org/magazine/magazine-issues/2020/june/neuroscientist-offers-antidote-for-stage-fright" target="_blank" class="feat-card">
+        <div class="feat-card-icon">📰</div>
+        <div class="feat-card-title">Neuroscientist Offers Antidote for Stage Fright</div>
+        <div class="feat-card-desc">Featured in <strong>Toastmaster Magazine</strong>. Anwesha Banerjee, DTM, Ph.D., discusses stage fright through the lens of neuroscience — and offers a surprising antidote rooted in habit and repetition.</div>
+        <div class="feat-card-link">Read in Toastmaster Magazine →</div>
+      </a>
+
+      <a href="https://ideas.ted.com/one-effective-way-to-manage-stage-fright-make-it-a-habit/" target="_blank" class="feat-card">
+        <div class="feat-card-icon">💡</div>
+        <div class="feat-card-title">One Effective Way to Manage Stage Fright: Make It a Habit</div>
+        <div class="feat-card-desc">Featured on <strong>TED Ideas</strong>. Most of us feel scared about public speaking. We rehearse incessantly — or stop altogether. Neuroscientist Anwesha Banerjee has a different, evidence-backed suggestion.</div>
+        <div class="feat-card-link">Read on TED Ideas →</div>
+      </a>
+
+    </div>
+  </div>
+</div>
+
+<footer>© Dr. Anwesha Banerjee</footer>
+
+<script>
+  function showPage(id) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+    document.getElementById('page-' + id).classList.add('active');
+    document.querySelectorAll('.nav-link').forEach(l => {
+      if (l.getAttribute('onclick') && l.getAttribute('onclick').includes("'" + id + "'")) {
+        l.classList.add('active');
+      }
+    });
+    window.scrollTo(0, 0);
+  }
+</script>
+</body>
+</html>
