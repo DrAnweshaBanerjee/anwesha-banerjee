@@ -105,6 +105,25 @@
   .stack-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.25rem; }
   .stack-chip { font-size: 0.78rem; color: rgba(232,228,220,0.82); background: rgba(255,255,255,0.04); border: 0.5px solid rgba(255,255,255,0.1); padding: 0.4rem 0.85rem; border-radius: 6px; }
 
+  /* RESEARCH */
+  .scholar-banner { background: rgba(132,94,194,0.06); border: 0.5px solid rgba(132,94,194,0.25); border-radius: 12px; padding: 1.5rem 1.9rem; margin-top: 1rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+  .scholar-stats { display: flex; gap: 2.5rem; flex-wrap: wrap; margin-top: 1.25rem; }
+  .scholar-stat { text-align: center; }
+  .scholar-stat-num { font-family: 'DM Serif Display', serif; font-size: 2rem; color: #f0ece2; line-height: 1; }
+  .scholar-stat-label { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(232,228,220,0.5); margin-top: 0.3rem; }
+  .research-areas { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.25rem; }
+  .research-tag { font-size: 0.8rem; color: #f0ece2; background: rgba(132,94,194,0.12); border: 0.5px solid rgba(132,94,194,0.3); padding: 0.4rem 0.9rem; border-radius: 20px; }
+  .pub-list { display: flex; flex-direction: column; gap: 0.85rem; margin-top: 1.25rem; }
+  .pub-card { background: rgba(255,255,255,0.025); border: 0.5px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 1.25rem 1.5rem; display: grid; grid-template-columns: 1fr auto; gap: 1rem; align-items: start; transition: border-color 0.2s; }
+  .pub-card:hover { border-color: rgba(132,94,194,0.3); }
+  .pub-title { font-size: 0.95rem; font-weight: 500; color: #f0ece2; margin-bottom: 0.35rem; line-height: 1.45; }
+  .pub-meta { font-size: 0.8rem; color: rgba(232,228,220,0.55); line-height: 1.6; }
+  .pub-journal { font-size: 0.78rem; color: #845EC2; margin-top: 0.25rem; font-style: italic; }
+  .pub-cite { text-align: right; flex-shrink: 0; }
+  .pub-cite-num { font-family: 'DM Serif Display', serif; font-size: 1.5rem; color: #f0ece2; line-height: 1; }
+  .pub-cite-label { font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(232,228,220,0.45); }
+  .pub-year { font-size: 0.72rem; color: rgba(232,228,220,0.4); margin-top: 0.2rem; }
+
   /* FEATURED */
   .featured-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin-top: 1.25rem; }
   .feat-card { background: rgba(255,255,255,0.025); border: 0.5px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 1.5rem; text-decoration: none; display: block; transition: border-color 0.2s, transform 0.2s; }
@@ -152,6 +171,7 @@
     <button class="nav-link active" onclick="showPage('home')">Home</button>
     <button class="nav-link" onclick="showPage('about')">About</button>
     <button class="nav-link" onclick="showPage('experience')">Experience</button>
+    <button class="nav-link" onclick="showPage('research')">Research</button>
     <button class="nav-link" onclick="showPage('featured')">Featured</button>
   </div>
 </nav>
@@ -368,6 +388,119 @@
       </div>
     </div>
 
+  </div>
+</div>
+
+<!-- RESEARCH -->
+<div id="page-research" class="page">
+  <div class="exp-wrap">
+    <div class="section-label">Research</div>
+
+    <div class="scholar-banner">
+      <div>
+        <div style="font-family: 'DM Serif Display', serif; font-size: 1.5rem; color: #f0ece2; margin-bottom: 0.4rem;">Peer-Reviewed Publications</div>
+        <div style="font-size: 0.88rem; color: rgba(232,228,220,0.7); max-width: 520px; line-height: 1.7;">Research spanning autism, Fragile X syndrome, ALS/FTD, narcolepsy, and neurodevelopmental disorders — from molecular mechanisms to therapeutic strategies.</div>
+        <div class="research-areas">
+          <span class="research-tag">Narcolepsy</span>
+          <span class="research-tag">Autism</span>
+          <span class="research-tag">Fragile X Syndrome</span>
+          <span class="research-tag">Neurodevelopmental Disorders</span>
+          <span class="research-tag">Repeat Expansion Disorders</span>
+          <span class="research-tag">ALS / FTD</span>
+        </div>
+      </div>
+      <a href="https://scholar.google.com/citations?hl=en&user=rnvvf44AAAAJ" target="_blank" class="btn btn-accent" style="flex-shrink:0;">View on Google Scholar ↗</a>
+    </div>
+
+    <div class="scholar-stats">
+      <div class="scholar-stat">
+        <div class="scholar-stat-num">500+</div>
+        <div class="scholar-stat-label">Total Citations</div>
+      </div>
+      <div class="scholar-stat">
+        <div class="scholar-stat-num">10+</div>
+        <div class="scholar-stat-label">Publications</div>
+      </div>
+      <div class="scholar-stat">
+        <div class="scholar-stat-num">150</div>
+        <div class="scholar-stat-label">Top Cited Paper</div>
+      </div>
+    </div>
+
+    <div class="exp-section">
+      <div class="section-label">Selected publications</div>
+      <div class="pub-list">
+
+        <div class="pub-card">
+          <div>
+            <div class="pub-title">Impairment of cortical GABAergic synaptic transmission in an environmental rat model of autism</div>
+            <div class="pub-meta">A Banerjee, F García-Oscos, S Roychowdhury, LC Galindo, S Hall, et al.</div>
+            <div class="pub-journal">International Journal of Neuropsychopharmacology, 16(6), 1309–1318</div>
+          </div>
+          <div class="pub-cite">
+            <div class="pub-cite-num">150</div>
+            <div class="pub-cite-label">cited by</div>
+            <div class="pub-year">2013</div>
+          </div>
+        </div>
+
+        <div class="pub-card">
+          <div>
+            <div class="pub-title">Aberrant RNA translation in fragile X syndrome: From FMRP mechanisms to emerging therapeutic strategies</div>
+            <div class="pub-meta">A Banerjee, MF Ifrim, AN Valdez, N Raj, GJ Bassell</div>
+            <div class="pub-journal">Brain Research, 1693, 24–36</div>
+          </div>
+          <div class="pub-cite">
+            <div class="pub-cite-num">139</div>
+            <div class="pub-cite-label">cited by</div>
+            <div class="pub-year">2018</div>
+          </div>
+        </div>
+
+        <div class="pub-card">
+          <div>
+            <div class="pub-title">Chimeric Peptide Species Contribute to Divergent Dipeptide Repeat Pathology in c9ALS/FTD and SCA36</div>
+            <div class="pub-meta">Neuron</div>
+            <div class="pub-journal">Neuron</div>
+          </div>
+          <div class="pub-cite">
+            <div class="pub-cite-num">82</div>
+            <div class="pub-cite-label">cited by</div>
+            <div class="pub-year">2020</div>
+          </div>
+        </div>
+
+        <div class="pub-card">
+          <div>
+            <div class="pub-title">Abnormal emotional learning in a rat model of autism exposed to valproic acid <em>in utero</em></div>
+            <div class="pub-meta">A Banerjee, CT Engineer, BL Sauls, AA Morales, MP Kilgard, JE Ploski</div>
+            <div class="pub-journal">Frontiers in Behavioral Neuroscience, 8, 387</div>
+          </div>
+          <div class="pub-cite">
+            <div class="pub-cite-num">74</div>
+            <div class="pub-cite-label">cited by</div>
+            <div class="pub-year">2014</div>
+          </div>
+        </div>
+
+        <div class="pub-card">
+          <div>
+            <div class="pub-title">Overexpression of Homer1a in the basal and lateral amygdala impairs fear conditioning and induces an autism-like social impairment</div>
+            <div class="pub-meta">Banerjee A, Luong J, Ho A Saib</div>
+            <div class="pub-journal">Molecular Autism</div>
+          </div>
+          <div class="pub-cite">
+            <div class="pub-cite-num">51</div>
+            <div class="pub-cite-label">cited by</div>
+            <div class="pub-year">2016</div>
+          </div>
+        </div>
+
+      </div>
+      <div style="margin-top: 1.5rem; text-align: center;">
+        <a href="https://scholar.google.com/citations?hl=en&user=rnvvf44AAAAJ" target="_blank" class="btn btn-outline">See all publications on Google Scholar ↗</a>
+      </div>
+    </div>
   </div>
 </div>
 
